@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TVShows
 
 struct ContentView: View {
 
@@ -17,14 +18,7 @@ struct ContentView: View {
                 PosterOptions(offSet: $posterOffset, optionSelected: $showPoster)
             }
         } else {
-            Text("Show Selected View").gesture(TapGesture(count: 1).onEnded({ () in
-                withAnimation(.default) {
-                    showPoster.toggle()
-                    withAnimation(.spring) {
-                        posterOffset = 0
-                    }
-                }
-            })).font(.title).background(Color.blue)
+            TVShows()
         }
     }
 }

@@ -17,6 +17,7 @@
 		33DA6C672B73D759002C1239 /* PosterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA6C662B73D759002C1239 /* PosterSelectionView.swift */; };
 		33DA6C6A2B73E6DF002C1239 /* EntertainmentOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA6C692B73E6DF002C1239 /* EntertainmentOption.swift */; };
 		33DA6C6C2B7409BD002C1239 /* PosterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA6C6B2B7409BD002C1239 /* PosterOptions.swift */; };
+		33DA6C702B751870002C1239 /* TVShows in Frameworks */ = {isa = PBXBuildFile; productRef = 33DA6C6F2B751870002C1239 /* TVShows */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		33DA6C662B73D759002C1239 /* PosterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSelectionView.swift; sourceTree = "<group>"; };
 		33DA6C692B73E6DF002C1239 /* EntertainmentOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentOption.swift; sourceTree = "<group>"; };
 		33DA6C6B2B7409BD002C1239 /* PosterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterOptions.swift; sourceTree = "<group>"; };
+		33DA6C6D2B751853002C1239 /* TVShows */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TVShows; path = Movies/TVShows; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33DA6C702B751870002C1239 /* TVShows in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +84,12 @@
 		33DA6C2C2B73B32B002C1239 = {
 			isa = PBXGroup;
 			children = (
+				33DA6C6D2B751853002C1239 /* TVShows */,
 				33DA6C372B73B32B002C1239 /* Movies */,
 				33DA6C482B73B32F002C1239 /* MoviesTests */,
 				33DA6C522B73B32F002C1239 /* MoviesUITests */,
 				33DA6C362B73B32B002C1239 /* Products */,
+				33DA6C6E2B751870002C1239 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +175,13 @@
 			path = Utitities;
 			sourceTree = "<group>";
 		};
+		33DA6C6E2B751870002C1239 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +198,9 @@
 			dependencies = (
 			);
 			name = Movies;
+			packageProductDependencies = (
+				33DA6C6F2B751870002C1239 /* TVShows */,
+			);
 			productName = Movies;
 			productReference = 33DA6C352B73B32B002C1239 /* Movies.app */;
 			productType = "com.apple.product-type.application";
@@ -628,6 +643,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		33DA6C6F2B751870002C1239 /* TVShows */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TVShows;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 33DA6C2D2B73B32B002C1239 /* Project object */;
 }
