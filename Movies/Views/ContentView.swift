@@ -18,7 +18,7 @@ struct ContentView: View {
                 PosterOptions(offSet: $posterOffset, optionSelected: $showPoster)
             }
         } else {
-            TVShows()
+            TVShowList($posterOffset, showPoster: $showPoster)
         }
     }
 }

@@ -3,17 +3,40 @@
 
 import SwiftUI
 
-public struct TVShows: View {
+public struct TVShowList: View {
+    @StateObject private var tvShowViewModel = TVShowsViewModel()
     
-    public init() {}
+    @Binding public var offset: Int
+    @Binding public var showPoster: Bool
+    
+    public init(_ offset: Binding<Int>, showPoster: Binding<Bool>) {
+        _offset = offset
+        _showPoster = showPoster
+    }
     
     @available(iOS 13.0, *)
     public var body: some View {
-        Text("Show Selected View").gesture(TapGesture(count: 1).onEnded({ () in
-        })).font(.title).background(Color.blue)
+        NavigationStack {
+            VStack {
+                
+            }.toolbar(content: {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Back") {
+                        withAnimation(.default) {
+                            showPoster.toggle()
+                            withAnimation(.spring) {
+                                offset = 0
+                            }
+                        }
+                    }
+                }
+            })
+        }.searchable(text: $tvShowViewModel.search, placement: .toolbar, prompt: "Enter tv show name")
+
+            
     }
 }
 
 #Preview {
-    TVShows()
+    TVShowList(.constant(0), showPoster: .constant(true))
 }

@@ -18,8 +18,9 @@ struct PosterOptions: View {
                 .gesture(TapGesture(count: 1).onEnded({ () in
                     withAnimation(.easeIn) {
                         offSet = Int(UIScreen.main.bounds.height/2)
-                    } completion: {
-                        optionSelected.toggle()
+                        if offSet >= Int(UIScreen.main.bounds.height/2) {
+                            optionSelected.toggle()
+                        }
                     }
                 }))
             PosterSelectionView( posterType: EntertainmentOption.tvShows)
@@ -27,8 +28,9 @@ struct PosterOptions: View {
                 .gesture(TapGesture(count: 1).onEnded({ () in
                     withAnimation(.easeIn) {
                         offSet = Int(UIScreen.main.bounds.height/2)
-                    } completion: {
-                        optionSelected.toggle()
+                        if offSet == Int(UIScreen.main.bounds.height/2) {
+                            optionSelected.toggle()
+                        }
                     }
                 }))
         }
