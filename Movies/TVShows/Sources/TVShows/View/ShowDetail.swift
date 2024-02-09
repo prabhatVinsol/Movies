@@ -13,8 +13,10 @@ struct ShowDetail: View {
         AsyncImage(url: showDetailVM.imageUrl) { image in
             image.image?.resizable().padding()
         }.frame(width: UIScreen.main.bounds.width, height: 600)
-        ForEach(1...showDetailVM.totalSeasons, id: \.self) { val in
-            SeasonView(season: val, title: showDetailVM.title, posterString: showDetailVM.poster ?? "")
+        if showDetailVM.totalSeasons > 0 {
+            ForEach(1...showDetailVM.totalSeasons, id: \.self) { val in
+                SeasonView(season: val, title: showDetailVM.title, posterString: showDetailVM.poster ?? "")
+            }
         }
     }
 }

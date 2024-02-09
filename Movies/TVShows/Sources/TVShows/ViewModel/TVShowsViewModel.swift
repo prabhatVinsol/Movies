@@ -39,7 +39,9 @@ extension TVShowsViewModel {
         let tvRepo = TVShowRepo(search: search)
         isLoading = true
         tvRepo.getShow({ [weak self] tvSeries in
-            self?.tvSeries = tvSeries
+            DispatchQueue.main.async {
+                self?.tvSeries = tvSeries
+            }
         }) { [weak self] error in
             self?.isLoading = false
         }
@@ -48,7 +50,7 @@ extension TVShowsViewModel {
 
 extension TVShowsViewModel {
     var totalSeasons: Int {
-        Int(tvSeries?.totalSeasons ?? "1") ?? 1
+        Int(tvSeries?.totalSeasons ?? "0") ?? 0
     }
     var title: String {
         tvSeries?.title ?? "title"

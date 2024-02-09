@@ -33,7 +33,9 @@ extension SeasonsViewModel {
     func getSeasonDetail(_ title: String, season: Int) {
         let seasonRepo = SeasonRepo(season: season, title: title)
         seasonRepo.getShow {[weak self] seasons in
-            self?.seasons = seasons
+            DispatchQueue.main.async {
+                self?.seasons = seasons
+            }
         } failure: {[weak self] error in
             self?.error = error
         }
