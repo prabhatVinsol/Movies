@@ -9,7 +9,6 @@ import Foundation
 
 protocol RepoProtocol {
     associatedtype T: Decodable
-    var search: String {get set}
     func getShow(_ success: @escaping(T?) -> Void, failure: @escaping(Error) -> Void)
 }
 

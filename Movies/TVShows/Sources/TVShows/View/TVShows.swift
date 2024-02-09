@@ -18,8 +18,16 @@ public struct TVShowList: View {
     public var body: some View {
         NavigationStack {
             VStack {
-                
-            }.toolbar(content: {
+                if (!tvShowViewModel.isLoading) {
+                    ScrollView {
+                        ShowDetail(showDetailVM: tvShowViewModel)
+                        Spacer()
+                    }
+                } else {
+                    ProgressView().font(.title)
+                }
+            }
+            .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Back") {
                         withAnimation(.default) {
@@ -31,7 +39,9 @@ public struct TVShowList: View {
                     }
                 }
             })
-        }.searchable(text: $tvShowViewModel.search, placement: .toolbar, prompt: "Enter tv show name")
+        }
+        .searchable(text: $tvShowViewModel.search, placement: .toolbar, prompt: "Enter tv show name")
+            
 
             
     }
